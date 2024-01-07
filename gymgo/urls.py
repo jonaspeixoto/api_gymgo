@@ -1,8 +1,10 @@
-from django.urls import include, path
+from django.urls import include, re_path
 from .views import usuario_views
 
 urlpatterns = [
-    path('cadastrar_usuario/', usuario_views.UsuarioList.as_view(), name='usuario-list'),
+    re_path('login', usuario_views.login),
+    re_path('cadastro', usuario_views.cadastro),
+    re_path('teste_token', usuario_views.test_token),
 
 
 

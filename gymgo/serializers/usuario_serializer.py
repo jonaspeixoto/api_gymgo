@@ -3,6 +3,6 @@ from ..models import Usuario
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
-    class Meta:
+    class Meta(object):
         model = Usuario
-        fields = ('username','cargo','email','password')
+        fields = ('id','username','cargo','email','password')

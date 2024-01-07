@@ -1,0 +1,33 @@
+POST http://127.0.0.1:8000/login 
+Content-Type: application/json
+{"username":"jonas", "password": "1234"}
+
+###
+
+POST  /api/cadastrar_usuario/cadatro
+Content-Type: application/json
+{"username":"jonas", "password": "1234","email": "jonas@gmail.com"}
+
+###
+
+POST  /api/cadastrar_usuario/teste_token
+Content-Type: application/json
+{"username":"jonas", "password": "1234","email": "jonas@gmail.com"}
+
+{}
+
+
+POST http://127.0.0.1:8000/cadastrar_usuario Content-Type: application/json
+
+{ "username": "adam", "password": "Pass1234!", "email": "adam@mail.com" }
+
+###
+
+POST http://127.0.0.1:8000/login Content-Type: application/json
+
+{ "username": "adam", "password": "Pass1234!" }
+
+###
+
+GET http://127.0.0.1:8000/test_token Content-Type: application/json Authorization: token xxx
+
