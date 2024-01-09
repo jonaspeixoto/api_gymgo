@@ -2,24 +2,40 @@ POST http://127.0.0.1:8000/api/cadastro HTTP/1.1
 content-type: application/json
 
 {
-    "username": "jonas",
+    "username": "jonfass",
     "password": "1234",
-    "email":"jonas",
-    "cargo": "A"
+    "email":"jonaffs@gmail.com",
+    "cargo": "Aluno"
 }
 
 ###
 
 POST http://127.0.0.1:8000/api/login 
 Content-Type: application/json
+Authorization: Token 347017eacfdd4e5ee0461f0bf7e01af132f7f312
 
 {
-    "username": "joans_teste2",
-    "password": "123456"
+    "username": "jonfass",
+    "password": "1234"
 }
+
 
 ###
 
-GET http://127.0.0.1:8000/api/teste_token
+POST http://127.0.0.1:8000/api/perfil 
 Content-Type: application/json
-Authorization: Token 06cf4f8a1e39ed4966ce9ed6c2976e207cf778c0
+Authorization: Token 347017eacfdd4e5ee0461f0bf7e01af132f7f312
+
+{
+    "idade":25,
+    "peso":75,
+    "altura":174,
+    "cep":"45415",
+    "numero":325
+
+}
+###
+
+GET http://127.0.0.1:8000/api/obter
+Content-Type: application/json
+Authorization: Token 347017eacfdd4e5ee0461f0bf7e01af132f7f312

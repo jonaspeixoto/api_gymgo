@@ -20,5 +20,5 @@ class Perfil(models.Model):
     altura = models.DecimalField(max_digits=5, decimal_places=2, help_text="Altura em metros")
     cep = models.IntegerField(null=True, blank=True)
     numero = models.IntegerField(null=True, blank=True)
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, null=True)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, null=True, unique=True)
 
