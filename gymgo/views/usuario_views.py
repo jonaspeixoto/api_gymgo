@@ -1,6 +1,6 @@
 from ..services import usuario_service
 from ..serializers import usuario_serializer
-from ..models import Usuario
+from ..models import Usuario, Perfil
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
@@ -47,9 +47,22 @@ def perfil(request):
 
     if serializer.is_valid():
         serializer.save()
-        return Response({"nome":request.user.username, "perfil_usuario":serializer.data, }, status=status.HTTP_201_CREATED)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     else:
         return Response({'detail': 'Usuário não autenticado'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def obter_perfil(request):
+    usuario = Usuario.objects.get(id=request.user.id)
+    perfil_usuario = Perfil.objects.get(id=request.user.id)
+    serializer_usuario = usuario_serializer.UsuarioSerializer(usuario)
+    serializer_perfil_usuario = usuario_serializer.PerfilUsuarioSerializer(perfil_usuario)
+    return Response({"Usuario":serializer_usuario.data,"perfil":serializer_perfil_usuario.data}, status=status.HTTP_200_OK)
+
+
 
 
 @api_view(['GET'])

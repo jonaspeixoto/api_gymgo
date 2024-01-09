@@ -6,6 +6,7 @@ urlpatterns = [
     re_path('cadastro', usuario_views.cadastro),
     re_path('teste_token', usuario_views.test_token),
     re_path('perfil', usuario_views.perfil),
+    re_path('obter', usuario_views.obter_perfil),
 
 
 
