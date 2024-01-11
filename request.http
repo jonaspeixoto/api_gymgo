@@ -10,7 +10,7 @@ content-type: application/json
     "email":"jonas@gmail.com",
     "cargo": "Aluno",
     "cpf":"12245545",
-    "numer": 15
+    "numero": 15
 }
 
 ###
@@ -31,7 +31,6 @@ Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
 
 
 
-# Rotas Planos Associados
 
 ###
 
@@ -57,8 +56,17 @@ Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
 ###
 
 
+# Rotas Planos Associados
+
 POST http://127.0.0.1:8000/api/cadastrar_plano/
 Content-Type: application/json
-Authorization: Token 347017eacfdd4e5ee0461f0bf7e01af132f7f312
+Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
 
+{
+    "nome":"Plano 1",
+    "descricao":"Plano 1 premium",
+    "valor":1220
+
+}
+###
            
