@@ -1,3 +1,6 @@
+
+# Rotas Usuario
+
 POST http://127.0.0.1:8000/api/cadastro/ HTTP/1.1
 content-type: application/json
 
@@ -22,6 +25,15 @@ Content-Type: application/json
 
 
 ###
+POST  http://127.0.0.1:8000/api/logout/
+Content-Type: application/json
+Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
+
+
+
+# Rotas Planos Associados
+
+###
 
 POST http://127.0.0.1:8000/api/perfil_cadastro/
 Content-Type: application/json
@@ -44,11 +56,6 @@ Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
 
 ###
 
-POST  http://127.0.0.1:8000/api/logout/
-Content-Type: application/json
-Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
-
-###
 
 POST http://127.0.0.1:8000/api/cadastrar_plano/
 Content-Type: application/json
