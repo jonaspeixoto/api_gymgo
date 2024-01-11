@@ -11,7 +11,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
 class PerfilUsuarioSerializer(serializers.ModelSerializer):
     class Meta(object):
         model = Perfil
-        fields = ('idade', 'peso', 'altura','cep', 'numero','usuario')
+        fields = '__all__'
 
 
     

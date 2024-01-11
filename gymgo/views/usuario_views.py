@@ -23,7 +23,6 @@ def cadastro (request):
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 @api_view(['POST'])
 def login (request):
     username = request.data['username']
@@ -41,7 +40,14 @@ def login (request):
 @api_view(['POST'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
 @permission_classes([IsAuthenticated])
-def perfil(request):
+def logout (request):
+    request.auth.delete()
+    return Response({"detalhes": "Logout bem sucedido"}, status=status.HTTP_200_OK )
+
+@api_view(['POST'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def perfil_cadastro(request):
     dados_perfil = {'usuario': request.user.id, **request.data}
     serializer = usuario_serializer.PerfilUsuarioSerializer(data=dados_perfil)
 
@@ -55,15 +61,12 @@ def perfil(request):
 @api_view(['GET'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
 @permission_classes([IsAuthenticated])
-def obter_perfil(request):
+def perfil_usuario(request):
     usuario = Usuario.objects.get(id=request.user.id)
     perfil_usuario = Perfil.objects.get(id=request.user.id)
     serializer_usuario = usuario_serializer.UsuarioSerializer(usuario)
     serializer_perfil_usuario = usuario_serializer.PerfilUsuarioSerializer(perfil_usuario)
     return Response({"Usuario":serializer_usuario.data,"perfil":serializer_perfil_usuario.data}, status=status.HTTP_200_OK)
-
-
-
 
 @api_view(['GET'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
