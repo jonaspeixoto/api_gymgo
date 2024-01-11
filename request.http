@@ -1,30 +1,31 @@
-POST http://127.0.0.1:8000/api/cadastro HTTP/1.1
+POST http://127.0.0.1:8000/api/cadastro/ HTTP/1.1
 content-type: application/json
 
 {
-    "username": "jonfass",
+    "username": "jonass",
     "password": "1234",
-    "email":"jonaffs@gmail.com",
-    "cargo": "Aluno"
+    "email":"jonas@gmail.com",
+    "cargo": "Aluno",
+    "cpf":"12245545",
+    "numer": 15
 }
 
 ###
 
-POST http://127.0.0.1:8000/api/login 
+POST http://127.0.0.1:8000/api/login/
 Content-Type: application/json
-Authorization: Token 347017eacfdd4e5ee0461f0bf7e01af132f7f312
 
 {
-    "username": "jonfass",
+    "username": "jonass",
     "password": "1234"
 }
 
 
 ###
 
-POST http://127.0.0.1:8000/api/perfil 
+POST http://127.0.0.1:8000/api/perfil_cadastro/
 Content-Type: application/json
-Authorization: Token 347017eacfdd4e5ee0461f0bf7e01af132f7f312
+Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
 
 {
     "idade":25,
@@ -36,6 +37,21 @@ Authorization: Token 347017eacfdd4e5ee0461f0bf7e01af132f7f312
 }
 ###
 
-GET http://127.0.0.1:8000/api/obter
+
+GET http://127.0.0.1:8000/api/perfil_usuario/
+Content-Type: application/json
+Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
+
+###
+
+POST  http://127.0.0.1:8000/api/logout/
+Content-Type: application/json
+Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
+
+###
+
+POST http://127.0.0.1:8000/api/cadastrar_plano/
 Content-Type: application/json
 Authorization: Token 347017eacfdd4e5ee0461f0bf7e01af132f7f312
+
+           
