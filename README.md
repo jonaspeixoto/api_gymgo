@@ -24,7 +24,7 @@ python -m venv venv
 
 ```
 
-# Ative o ambiente virtual (comando pode variar dependendo do sistema operacional)
+# Ative o ambiente virtual (comando pode variar dependendo do sistema operacional):
 # No Windows
 ```
 venv\Scripts\activate
