@@ -5,7 +5,7 @@ POST http://127.0.0.1:8000/api/cadastro/ HTTP/1.1
 content-type: application/json
 
 {
-    "username": "jonass",
+    "username": "jonaass",
     "password": "1234",
     "email":"jonas@gmail.com",
     "cargo": "Aluno",
@@ -19,7 +19,7 @@ POST http://127.0.0.1:8000/api/login/
 Content-Type: application/json
 
 {
-    "username": "jonass",
+    "username": "jonaass",
     "password": "1234"
 }
 
@@ -27,7 +27,7 @@ Content-Type: application/json
 ###
 POST  http://127.0.0.1:8000/api/logout/
 Content-Type: application/json
-Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
+Authorization: Token b47a38a883ced0cb47f11e988aed90ca95242351
 
 
 
@@ -36,7 +36,7 @@ Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
 
 POST http://127.0.0.1:8000/api/perfil_cadastro/
 Content-Type: application/json
-Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
+Authorization: Token c9d0153d5ea80732adcafb87954164f1adcba25f
 
 {
     "idade":25,
@@ -51,9 +51,18 @@ Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
 
 GET http://127.0.0.1:8000/api/perfil_usuario/
 Content-Type: application/json
-Authorization: Token 9bbeb24ddb88b1be8f21ba5cd5e6d1447eccac6a
+Authorization: Token c9d0153d5ea80732adcafb87954164f1adcba25f
 
 ###
+
+
+
+POST http://127.0.0.1:8000/api/fazer_checkin/
+Content-Type: application/json
+Authorization: Token c9d0153d5ea80732adcafb87954164f1adcba25f
+
+###
+
 
 
 # Rotas Planos Associados

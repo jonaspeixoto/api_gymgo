@@ -68,6 +68,25 @@ def perfil_usuario(request):
     serializer_perfil_usuario = usuario_serializer.PerfilUsuarioSerializer(perfil_usuario)
     return Response({"Usuario":serializer_usuario.data,"perfil":serializer_perfil_usuario.data}, status=status.HTTP_200_OK)
 
+
+
+@api_view(['POST'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def fazer_checkin(request):
+    dados_checkin = {'aluno': request.user.id}
+    serializer = usuario_serializer.CheckInUsuarioSerializer(data=dados_checkin)
+    print(serializer)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    else:
+        return Response({'detail': 'Usuário não autenticado'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+
+    
+
 @api_view(['GET'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
 @permission_classes([IsAuthenticated])
