@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import Usuario, Perfil
+from ..models import Usuario, Perfil, CheckIn
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
@@ -13,6 +13,10 @@ class PerfilUsuarioSerializer(serializers.ModelSerializer):
         model = Perfil
         fields = '__all__'
 
+class CheckInUsuarioSerializer(serializers.ModelSerializer):
+    class Meta(object):
+        model = CheckIn
+        fields = '__all__'
 
     
    

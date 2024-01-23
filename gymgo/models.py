@@ -17,6 +17,10 @@ class Usuario(AbstractUser):
     telefone = models.CharField(max_length=20, null=True)
     plano = models.ForeignKey(PlanoAssociacao, on_delete=models.CASCADE, null=True)
 
+class CheckIn(models.Model):
+    aluno = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    data_hora_checkin = models.DateTimeField(auto_now_add=True)
+
 
 class Perfil(models.Model):
     # foto_perfil = models.ImageField()
