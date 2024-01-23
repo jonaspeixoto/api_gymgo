@@ -13,6 +13,10 @@ from rest_framework.permissions import IsAuthenticated
 @authentication_classes([SessionAuthentication, TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def plano_associacao(request):
+    print(request.user.cargo)
+    if request.user.cargo != 'Gerente':
+        return Response({'error': 'Voce não tem permissão para Cadastrar planos de associação'}, status=status.HTTP_403_FORBIDDEN)
+
     serializer = planos_serializer.PlanosSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
