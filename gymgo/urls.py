@@ -9,6 +9,7 @@ urlpatterns = [
     path('teste_token/', usuario_views.test_token, name='teste_token'),
     path('perfil_cadastro/', usuario_views.perfil_cadastro, name='perfil_cadastro'),
     path('perfil_usuario/', usuario_views.perfil_usuario, name='perfil_usuario'),
+    path('editar_perfil/', usuario_views.editar_perfil, name='editar_perfil'),
     path('fazer_checkin/', usuario_views.fazer_checkin, name='fazer_checkin'),
 
 

@@ -51,15 +51,42 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 
 GET http://127.0.0.1:8000/api/perfil_usuario/
 Content-Type: application/json
-Authorization: Token e766bb5443a7249d6c2376c27d2cc33fc459cd39
+Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 
+
+###
+
+
+PUT http://127.0.0.1:8000/api/editar_perfil/
+Content-Type: application/json
+Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
+{
+  "Usuario": {
+    "id": 6,
+    "username": "Eduassrdaao",
+    "cargo": "Aluno",
+    "email": "Eduardosas@gmail.com",
+    "password": "pbkdf2_sha256$720000$CX67m6p2g4xS6ER4WnwCyg$SQfZfGW1WJRkwSscIb2EWKqefEPlh+qBI8w1uhm99fg=",
+    "cpf": "12245545",
+    "telefone": null
+  },
+  "perfil": {
+    "id": 5,
+    "idade": 25,
+    "peso": 75,
+    "altura": "174.00",
+    "cep": 45415,
+    "numero": 325,
+    "usuario": 6
+  }
+}
 ###
 
 
 
 POST http://127.0.0.1:8000/api/fazer_checkin/
 Content-Type: application/json
-Authorization: Token c9d0153d5ea80732adcafb87954164f1adcba25f
+Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 
 ###
 
