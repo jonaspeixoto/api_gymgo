@@ -5,12 +5,12 @@ POST http://127.0.0.1:8000/api/cadastro/ HTTP/1.1
 content-type: application/json
 
 {
-    "username": "jonaass",
+    "username": "Eduassrdaao",
     "password": "1234",
-    "email":"jonas@gmail.com",
+    "email":"Eduardosas@gmail.com",
     "cargo": "Aluno",
     "cpf":"12245545",
-    "numero": 15
+    "numero": "3215145"
 }
 
 ###
@@ -19,7 +19,7 @@ POST http://127.0.0.1:8000/api/login/
 Content-Type: application/json
 
 {
-    "username": "jonaass",
+    "username": "Eduassrdaao",
     "password": "1234"
 }
 
@@ -27,7 +27,7 @@ Content-Type: application/json
 ###
 POST  http://127.0.0.1:8000/api/logout/
 Content-Type: application/json
-Authorization: Token b47a38a883ced0cb47f11e988aed90ca95242351
+Authorization: Token e766bb5443a7249d6c2376c27d2cc33fc459cd39
 
 
 
@@ -36,7 +36,7 @@ Authorization: Token b47a38a883ced0cb47f11e988aed90ca95242351
 
 POST http://127.0.0.1:8000/api/perfil_cadastro/
 Content-Type: application/json
-Authorization: Token c9d0153d5ea80732adcafb87954164f1adcba25f
+Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 
 {
     "idade":25,
@@ -51,7 +51,7 @@ Authorization: Token c9d0153d5ea80732adcafb87954164f1adcba25f
 
 GET http://127.0.0.1:8000/api/perfil_usuario/
 Content-Type: application/json
-Authorization: Token c9d0153d5ea80732adcafb87954164f1adcba25f
+Authorization: Token e766bb5443a7249d6c2376c27d2cc33fc459cd39
 
 ###
 

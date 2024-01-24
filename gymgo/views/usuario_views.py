@@ -56,7 +56,6 @@ def login (request):
     serializer = usuario_serializer.UsuarioSerializer(instance=user)
     return Response({"token": token.key, "user":serializer.data},status=status.HTTP_201_CREATED)
 
-
 @api_view(['POST'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -88,7 +87,10 @@ def perfil_cadastro(request):
     - Response: Retorna os dados do perfil cadastrado.
     """
     dados_perfil = {'usuario': request.user.id, **request.data}
+    print(dados_perfil)
     serializer = usuario_serializer.PerfilUsuarioSerializer(data=dados_perfil)
+
+    print(serializer)
 
     if serializer.is_valid():
         serializer.save()
@@ -111,12 +113,10 @@ def perfil_usuario(request):
     - Response: Retorna os dados do perfil cadastrado.
     """
     usuario = Usuario.objects.get(id=request.user.id)
-    perfil_usuario = Perfil.objects.get(id=request.user.id)
+    perfil_usuario = Perfil.objects.get(usuario=request.user.id)
     serializer_usuario = usuario_serializer.UsuarioSerializer(usuario)
     serializer_perfil_usuario = usuario_serializer.PerfilUsuarioSerializer(perfil_usuario)
     return Response({"Usuario":serializer_usuario.data,"perfil":serializer_perfil_usuario.data}, status=status.HTTP_200_OK)
-
-
 
 @api_view(['POST'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
@@ -139,7 +139,6 @@ def fazer_checkin(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     else:
         return Response({'detail': 'Usuário não autenticado'}, status=status.HTTP_401_UNAUTHORIZED)
-
 
 @api_view(['GET'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
