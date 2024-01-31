@@ -52,7 +52,6 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 ###
 
 #Obter informaçoes do perfil do usuario logado
-
 GET http://127.0.0.1:8000/api/perfil_usuario/
 Content-Type: application/json
 Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
@@ -93,7 +92,6 @@ Content-Type: application/json
 Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 
 ###
-
 
 # Fazer cadastro em um plano de associação passando o id do plano na rota
 POST http://127.0.0.1:8000/api/cadastrar_aluno_plano/2

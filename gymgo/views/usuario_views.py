@@ -157,6 +157,16 @@ def editar_perfil(request):
 @authentication_classes([SessionAuthentication, TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def cadastrar_aluno_plano(request,id):
+    """
+    Realiza o cadastro em um plano de associaçao.
+
+    Parameters:
+    - request: Objeto contendo os dados da requisição POST.
+    - id: Id conrrespondente ao plano de associação.
+
+    Returns:
+    - Response: Retorna o id do usuario e o id do plano que o mesmo foi associado.
+    """
     try:
         usuario = Usuario.objects.get(id=request.user.id)
     except Usuario.DoesNotExist:
