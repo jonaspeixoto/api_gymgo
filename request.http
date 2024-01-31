@@ -16,7 +16,7 @@ content-type: application/json
 
 ###
 
-# Cadastrar Fazer login
+# Fazer login no sistema
 POST http://127.0.0.1:8000/api/login/
 Content-Type: application/json
 
@@ -34,12 +34,9 @@ Content-Type: application/json
 Authorization: Token e766bb5443a7249d6c2376c27d2cc33fc459cd39
 
 
-
-
 ###
 
-
-#Cadastrar Perfil
+#Cadastrar Perfil relacionado a o usuario logado
 POST http://127.0.0.1:8000/api/perfil_cadastro/
 Content-Type: application/json
 Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
@@ -54,7 +51,7 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 }
 ###
 
-#Obter Perfil infornaçoes do perfil do usuario logado
+#Obter informaçoes do perfil do usuario logado
 
 GET http://127.0.0.1:8000/api/perfil_usuario/
 Content-Type: application/json
@@ -90,7 +87,7 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 ###
 
 
-
+# Fazer checking em uma academia
 POST http://127.0.0.1:8000/api/fazer_checkin/
 Content-Type: application/json
 Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
@@ -98,7 +95,7 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 ###
 
 
-
+# Fazer cadastro em um plano de associação passando o id do plano na rota
 POST http://127.0.0.1:8000/api/cadastrar_aluno_plano/2
 Content-Type: application/json
 Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
@@ -107,8 +104,7 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 
 # Rotas Planos Associados
 
-
-# Cadastro de plano pelo gerente
+# Cadastro de plano pelo gerente (só o gerente pode cadastrar)
 POST http://127.0.0.1:8000/api/cadastrar_plano/
 Content-Type: application/json
 Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
@@ -121,32 +117,14 @@ Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
 }
 ###
 
-# Rotas Planos Associados
-
-POST http://127.0.0.1:8000/api/cadastrar_plano/
-Content-Type: application/json
-Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
-
-{
-    "nome":"Plano 1",
-    "descricao":"Plano 1 premium",
-    "valor":1220
-
-}
-###
-
-GET http://127.0.0.1:8000/api/listar_planos/
-Content-Type: application/json
-Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
-
-###
-           
+#Listar todos os planos existentes no banco de dados
 GET http://127.0.0.1:8000/api/listar_planos/
 Content-Type: application/json
 Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
 
 ###
 
+# Listar informaçoes de um plano especifico passando o id na rota
 GET http://127.0.0.1:8000/api/listar_planos_id/1
 Content-Type: application/json
 Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
