@@ -1,6 +1,7 @@
 
 # Rotas Usuario
 
+# Cadastrar aluno
 POST http://127.0.0.1:8000/api/cadastro/ HTTP/1.1
 content-type: application/json
 
@@ -15,6 +16,7 @@ content-type: application/json
 
 ###
 
+# Cadastrar Fazer login
 POST http://127.0.0.1:8000/api/login/
 Content-Type: application/json
 
@@ -25,6 +27,8 @@ Content-Type: application/json
 
 
 ###
+
+# Cadastrar Fazer logout
 POST  http://127.0.0.1:8000/api/logout/
 Content-Type: application/json
 Authorization: Token e766bb5443a7249d6c2376c27d2cc33fc459cd39
@@ -34,6 +38,8 @@ Authorization: Token e766bb5443a7249d6c2376c27d2cc33fc459cd39
 
 ###
 
+
+#Cadastrar Perfil
 POST http://127.0.0.1:8000/api/perfil_cadastro/
 Content-Type: application/json
 Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
@@ -48,6 +54,7 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 }
 ###
 
+#Obter Perfil infornaçoes do perfil do usuario logado
 
 GET http://127.0.0.1:8000/api/perfil_usuario/
 Content-Type: application/json
@@ -56,7 +63,7 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 
 ###
 
-
+# Editar informaçoes do perfil
 PUT http://127.0.0.1:8000/api/editar_perfil/
 Content-Type: application/json
 Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
@@ -92,6 +99,28 @@ Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
 
 
 
+POST http://127.0.0.1:8000/api/cadastrar_aluno_plano/2
+Content-Type: application/json
+Authorization: Token c95c8f751b244c3b222ac9bb2b3356bfe100c0d1
+
+###
+
+# Rotas Planos Associados
+
+
+# Cadastro de plano pelo gerente
+POST http://127.0.0.1:8000/api/cadastrar_plano/
+Content-Type: application/json
+Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
+
+{
+    "nome":"Plano 1",
+    "descricao":"Plano 1 premium",
+    "valor":1220
+
+}
+###
+
 # Rotas Planos Associados
 
 POST http://127.0.0.1:8000/api/cadastrar_plano/
@@ -105,4 +134,24 @@ Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
 
 }
 ###
+
+GET http://127.0.0.1:8000/api/listar_planos/
+Content-Type: application/json
+Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
+
+###
            
+GET http://127.0.0.1:8000/api/listar_planos/
+Content-Type: application/json
+Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
+
+###
+
+GET http://127.0.0.1:8000/api/listar_planos_id/1
+Content-Type: application/json
+Authorization: Token b594181a58feaa1d7a989d1214fdd3aa2dac613a
+
+###
+
+
+          

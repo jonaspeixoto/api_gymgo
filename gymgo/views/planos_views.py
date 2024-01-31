@@ -23,3 +23,23 @@ def plano_associacao(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
 
+
+@api_view(['GET'])
+def listar_planos(request):
+    try:
+        planos = PlanoAssociacao.objects.all()
+        serializer = planos_serializer.PlanosSerializer(planos, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET'])
+def listar_planos_id(request, id):
+    
+    try:
+        plano = PlanoAssociacao.objects.get(id=id)
+    except PlanoAssociacao.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    serializer = planos_serializer.PlanosSerializer(plano)
+    return Response(serializer.data, status=status.HTTP_200_OK)

@@ -1,6 +1,7 @@
 from ..services import usuario_service
 from ..serializers import usuario_serializer
 from ..models import Usuario, Perfil
+from .planos_views import PlanoAssociacao
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
@@ -100,10 +101,10 @@ def perfil_cadastro(request):
 @permission_classes([IsAuthenticated])
 def perfil_usuario(request):
     """
-    Realiza o cadastro do perfil de um usuário autenticado.
+    Realiz consulta dos dados do perfil de um usuário autenticado.
 
     Parameters:
-    - request: Objeto contendo os dados da requisição POST.
+    - request: Objeto contendo os dados da requisição GET.
 
     Returns:
     - Response: Retorna os dados do perfil cadastrado.
@@ -137,14 +138,12 @@ def editar_perfil(request):
     except Perfil.DoesNotExist:
         return Response({"detail": "Perfil não encontrado."}, status=status.HTTP_404_NOT_FOUND)
 
-    # Atualiza os dados do usuário
     serializer_usuario = usuario_serializer.UsuarioSerializer(usuario, data=request.data.get('Usuario'))
     if serializer_usuario.is_valid():
         serializer_usuario.save()
     else:
         return Response({"errors": serializer_perfil_usuario.errors}, status=status.HTTP_400_BAD_REQUEST)
 
-    # Atualiza os dados do perfil
     serializer_perfil_usuario = usuario_serializer.PerfilUsuarioSerializer(perfil_usuario, data=request.data.get('perfil'))
     if serializer_perfil_usuario.is_valid():
         serializer_perfil_usuario.save()
@@ -154,6 +153,22 @@ def editar_perfil(request):
     return Response({"Usuario": serializer_usuario.data, "perfil": serializer_perfil_usuario.data}, status=status.HTTP_200_OK)
 
 
+@api_view(['POST'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def cadastrar_aluno_plano(request,id):
+    try:
+        usuario = Usuario.objects.get(id=request.user.id)
+    except Usuario.DoesNotExist:
+        return Response({"detail": "Usuário não encontrado."}, status=status.HTTP_404_NOT_FOUND)
+    
+    try:
+         plano =PlanoAssociacao.objects.get(id=id)
+    except Usuario.DoesNotExist:
+        return Response({"detail": "Plano não encontrado."}, status=status.HTTP_404_NOT_FOUND)
+    usuario.plano = plano
+    usuario.save()
+    return Response({"Usuario": usuario.id, "Plano": plano.id})
 
 
 @api_view(['POST'])
